@@ -1,0 +1,211 @@
+:root {
+  --primary: #0c2550;
+  --secondary: #0a64ff;
+  --light: #f9fcff;
+  --gray: #7888a6;
+  --border: #d9e6fc;
+  --padding: 2rem;
+  --rounded-md: 1rem;
+  --rounded-full: 100px;
+  --shadow-lg: hsla(218, 74%, 18%, 0.1) 2rem 2rem 4rem;
+  --shadow-sm: hsla(218, 85%, 92%, 0.5) 0.5rem 0.54rem 1rem;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(45deg, rgba(249, 252, 255, 0.5) 0%, #f9fcff 100%), url(../../img/01-bg.svg);
+  place-content: center center;
+  font-family: "Poppins", sans-serif;
+  color: var(--primary);
+  padding-top: 3rem;
+}
+
+h1 {
+  font-family: "Abril Fatface", serif;
+  letter-spacing: 0.05rem;
+  margin-top: 0px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+p {
+  padding: 0px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+  border: none;
+}
+
+.container {
+  background: url(../../img/02-bg.svg) no-repeat, url(../../img/03-bg.png) no-repeat, url(../../img/04-bg.png) no-repeat, var(--light) url(../../img/bg-man.png) no-repeat;
+  background-size: 30%, 5%, 40%, 40%;
+  background-position: left -4rem top -4rem, right 10px top, center bottom, right center;
+  padding: var(--padding);
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 940px;
+    height: 100%;
+  }
+}
+
+.form__wrap {
+  position: relative;
+  background: var(--light);
+  padding: var(--padding);
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 760px) {
+  .form__wrap {
+    width: 50%;
+  }
+}
+
+.form__avatar {
+  background: var(--light) url(../../img/man__avatar.png) center center no-repeat;
+  background-size: contain;
+  border-radius: var(--rounded-md);
+  box-shadow: var(--shadow-lg);
+  position: absolute;
+  transform: translateX(-30%);
+}
+
+@media (min-width: 760px) {
+  .form__avatar {
+    width: 9rem;
+    height: 9rem;
+    top: -5rem;
+    right: 0;
+  }
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  column-gap: 1rem;
+  row-gap: 1.5rem;
+  justify-content: space-between;
+  color: var(--gray);
+  margin: 2.5rem 0;
+}
+
+@media (min-width: 760px) {
+  .form__group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form__field {
+  height: 3rem;
+  width: 100%;
+  position: relative;
+}
+
+.form__field-email {
+  grid-column: span 2;
+}
+
+.form__input {
+  border: 1px solid var(--border);
+  background: var(--light);
+  border-radius: var(--rounded-full);
+  color: var(--primary);
+}
+
+.form__input:focus {
+  border: 1px solid var(--secondary);
+  background: white;
+}
+
+.form__input, .form__label {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  padding-left: 1rem;
+}
+
+.form__label {
+  pointer-events: none;
+}
+
+.form__label span {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  font-size: 0.9rem;
+}
+
+.form__input:focus ~ .form__label span,
+.form__input:not(:placeholder-shown) ~ .form__label span {
+  transform: translateY(-50%);
+  z-index: 3;
+  background: var(--secondary);
+  color: white;
+  border-radius: var(--rounded-full);
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  transition: 0.3s ease all;
+}
+
+.form__btn {
+  font-size: 0.9rem;
+  border-radius: var(--rounded-full);
+}
+
+.form__btn-primary {
+  background: var(--secondary);
+  color: white;
+  padding: calc(var(--padding) / 2);
+  letter-spacing: 0.005rem;
+}
+
+@media (max-width: 760px) {
+  .form__btn-primary {
+    width: 100%;
+  }
+}
+
+.form__btn-icon {
+  display: grid;
+  grid-template-columns: 1.5rem auto;
+  place-items: center left;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid var(--border);
+  padding: calc(var(--padding) / 3);
+  color: var(--secondary);
+}
+
+.form__btn-icon span {
+  color: var(--gray);
+}
+
+.form__btn-icon svg {
+  fill: currentColor;
+}
+
+.form__btn:hover {
+  box-shadow: var(--shadow-sm);
+  transition: 0.5s ease all;
+}
